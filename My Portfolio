@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aayush Bhandari's Portfolio</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        section {
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 800px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .book-list {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .book-list li {
+            margin-bottom: 8px;
+        }
+
+        .interests {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .interests img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .interests div {
+            flex: 1;
+            margin-right: 20px;
+            text-align: center;
+        }
+
+        .interests div:last-child {
+            margin-right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Aayush Bhandari's Portfolio</h1>
+        <p>Striving for Personal Growth and Achievement</p>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I'm Aayush Bhandari, a senior high school student in Class 11, constantly seeking to improve myself and become the best version of who I can be. I have a strong passion for reading self-development books, hitting the gym, and enjoying the beauty of nature through travel and exploration.</p>
+    </section>
+
+    <section id="top-books">
+        <h2>Top 3 Books</h2>
+        <ul class="book-list">
+            <li>The Alchemist</li>
+            <li>Seven Habits of Highly Effective People</li>
+            <li>The Personal MBA</li>
+        </ul>
+    </section>
+
+    <section id="favorite-books">
+        <h2>Other Favorite Books</h2>
+        <ul class="book-list">
+            <li>The 48 Laws of Power</li>
+            <li>How to Win Friends and Influence People</li>
+        </ul>
+    </section>
+
+    <section id="interests">
+        <h2>Interests</h2>
+        <div class="interests">
+            <div>
+                <h3>Hitting the Gym</h3>
+                <p>I believe in the importance of physical fitness for overall well-being.</p>
+            </div>
+            <div>
+                <h3>Exploring Nature</h3>
+                <p>Spending time outdoors helps me find peace and inspiration.</p>
+            </div>
+        </div>
+        <img src="https://images.unsplash.com/photo-1556204070-3ba8f0b36d65" alt="Nature" width="400">
+    </section>
+
+    <script>
+        const sections = document.querySelectorAll('section');
+
+        function checkInView() {
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const sectionBottom = section.getBoundingClientRect().bottom;
+
+                const isVisible = (sectionTop >= 0) && (sectionBottom <= window.innerHeight);
+
+                if (isVisible) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkInView);
+        window.addEventListener('resize', checkInView);
+
+        // Initial check
+        checkInView();
+    </script>
+</body>
+
+</html>
